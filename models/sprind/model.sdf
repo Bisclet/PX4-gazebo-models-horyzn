@@ -646,15 +646,11 @@
       <imu_sub_topic>/imu</imu_sub_topic>
       <mag_sub_topic>/mag</mag_sub_topic>
       <baro_sub_topic>/baro</baro_sub_topic>
-      <gps_sub_topic>/gps</gps_sub_topic>
-
-      <serial_enabled>true</serial_enabled>
-      <serial_device>/dev/ttyACM0</serial_device>
-      <baud_rate>921600</baud_rate>
+      <serial_enabled>false</serial_enabled>
       <qgc_addr>INADDR_ANY</qgc_addr>
       <qgc_udp_port>14550</qgc_udp_port>
-      <hil_mode>true</hil_mode>
-      <hil_state_level>true</hil_state_level>
+      <hil_mode>false</hil_mode>
+      <hil_state_level>false</hil_state_level>
       <use_tcp>true</use_tcp>
 
       <motorSpeedCommandPubTopic>/command/motor_speed</motorSpeedCommandPubTopic>
