@@ -628,7 +628,7 @@
       name="gz::sim::systems::OdometryPublisher">
       <odom_frame>map</odom_frame>
       <robot_base_frame>base_link</robot_base_frame>
-      <odom_topic>odom</odom_topic>
+      <odom_topic>ground_truth/odom</odom_topic>
       <dimensions>3</dimensions>
     </plugin>
     <include merge='true'>
@@ -642,5 +642,68 @@
       <child>link</child>
       <pose relative_to="base_link">0 0 0 0 0 0</pose>
     </joint>
+    <plugin filename="gz-sim-mavlink-system" name="gz::sim::systems::Mavlink">
+      <imu_sub_topic>/imu</imu_sub_topic>
+      <mag_sub_topic>/mag</mag_sub_topic>
+      <baro_sub_topic>/baro</baro_sub_topic>
+      <serial_enabled>false</serial_enabled>
+      <qgc_addr>INADDR_ANY</qgc_addr>
+      <qgc_udp_port>14550</qgc_udp_port>
+      <hil_mode>false</hil_mode>
+      <hil_state_level>false</hil_state_level>
+      <use_tcp>true</use_tcp>
+
+      <motorSpeedCommandPubTopic>/command/motor_speed</motorSpeedCommandPubTopic>
+      <control_channels>
+        <channel name="rotor1">
+          <input_index>0</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>3116</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name="rotor2">
+          <input_index>1</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>3116</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name="rotor3">
+          <input_index>2</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>3116</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name="rotor4">
+          <input_index>3</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>3116</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name="rotor5">
+          <input_index>4</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>3116</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name="rotor6">
+          <input_index>5</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>3116</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+      </control_channels>
+    </plugin>
     </model>
 </sdf>
